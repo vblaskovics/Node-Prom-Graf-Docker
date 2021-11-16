@@ -13,4 +13,4 @@ RUN git clone https://github.com/vblaskovics/node-prom node-prom
 WORKDIR /node-prom
 RUN npm install
 EXPOSE 8080
-CMD node serv
+CMD node server.js
