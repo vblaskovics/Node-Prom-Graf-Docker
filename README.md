@@ -38,7 +38,7 @@ touch prometheus.yml
 3. Elkészítjük a Docker image-t!
 
 ```
-docker build . -t promapp -f 
+docker build . -t promapp
 ```
 
 4. Elindítjuk a konténert!
