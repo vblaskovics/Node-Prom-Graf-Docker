@@ -1,53 +1,58 @@
+## Katakoda inicializálása
 
-## Node Instance létrehozása
+1. Lépj be a Katakoda Sandbox környezetébe:
 
-1. Létrehozzuk a Node instance-t, és azon belül a Dockerfile-t:
+(Katakoda Ubuntu Playground)[https://www.katacoda.com/courses/ubuntu/playground]
 
-```
-touch Dockerfile
-```
-
-2. Bemásoljuk a node.Dockerfile tartalmát a Dockerfile-ba!
-
-3. Elkészítjük a Docker image-t!
+2. A terminal-ba belépve add ki a következő parancsot:
 
 ```
-docker build . -t nodeapp
+git clone https://github.com/vblaskovics/Node-Prom-Graf-Docker
 ```
 
-4. Elindítjuk a konténert!
+3. Miután lejött a git repo, lépj is bele:
 
 ```
-docker run -d -p 8080:8080 nodeapp
+cd Node-Prom-Graf-Docker
 ```
 
-## Prometheus Instance elkészítése
+## Web app-ok létrehozása
 
-1. Létrehozunk egy új instance-t, és azon belül egy Dockerfile-t, valamint egy prometheus config fájlt:
-
-```
-touch Dockerfile
-```
+Ahhoz, hogy tudjunk monitorozni, szükségünk lesz alkalmazásokra. Ezeket az alábbi parancccsal tudod elindítani:
 
 ```
-touch prometheus.yml
+docker-compose -f docker-compose.web.yml up
 ```
 
-2. Bemásoljuk a prometheus.Dockerfile tartalmát a Dockerfile-ba, a prometheus.yml fájl tartalmát pedig a prometheus.yml fájlba! A prometheus.yml fájlban írjuk át a target IP címet a Node instance címére!
+Miután elindultak, nyisd meg az alkalmazásokat!
 
-3. Elkészítjük a Docker image-t!
+## Prometheus elkészítése
 
+1. Ha már futnak az alkalmazások, akkor az elérési útjukat be kell másolni a prometheus config fájljába. Ehhez lépj át az IDE-be és nyisd meg a `./prometheus/prometheus.yml` fájlt!
+
+A fájl megfelelő helyeire írd be az alkalmazások elérési útjait:
 ```
-docker build . -t promapp
+global:
+  scrape_interval: 5s
+scrape_configs:
+  - job_name: "nodeapp"
+    static_configs:
+      - targets: ["IDE KELL BEÍRNI A NODE APP ELÉRÉSI ÚTJÁT"]
+  - job_name: "expressapp"
+    static_configs:
+      - targets: ["IDE KELL BEÍRNI AZ EXPRESS APP ELÉRÉSI ÚTJÁT"]
 ```
 
-4. Elindítjuk a konténert!
-
+2. Ezután el kell indítani a prometheus-t:
 ```
-docker run -d -p 9090:9090 promapp
+docker-compose -f docker-compose.prom.yml up
 ```
 
-### Prometheus feladatok
+3. Ha elindult a prometheus alkalmazás, akkor nyisd meg külön ablakba!
+
+### Prometheus 
+
+
 
 
 
