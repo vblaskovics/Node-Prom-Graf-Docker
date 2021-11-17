@@ -47,6 +47,10 @@ docker build . -t promapp
 docker run -d -p 9090:9090 promapp
 ```
 
+### Prometheus feladatok
+
+
+
 ## Grafana instance elkészítése
 
 1. Létrehozunk egy új instance-t, és azon belül egy Dockerfile-t, valamint a Grafana config fájlt:
