@@ -26,6 +26,10 @@ docker-compose -f docker-compose.web.yml up
 
 Miután elindultak, nyisd meg az alkalmazásokat!
 
+- Port számok:
+  - node: 8080
+  - express: 8081
+
 ## Prometheus elkészítése
 
 ### 1. Ha már futnak az alkalmazások, akkor az elérési útjukat be kell másolni a prometheus config fájljába. Ehhez lépj át az IDE-be és nyisd meg a `./prometheus/prometheus.yml` fájlt!
@@ -48,6 +52,8 @@ scrape_configs:
 docker-compose -f docker-compose.prom.yml up
 ```
 Ha elindult a prometheus alkalmazás, akkor nyisd meg külön ablakba!
+
+Port szám: 9090
 
 ## Prometheus használata 
 
