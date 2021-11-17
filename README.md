@@ -1,16 +1,16 @@
 ## Katakoda inicializálása
 
-1. Lépj be a Katakoda Sandbox környezetébe:
+### 1. Lépj be a Katakoda Sandbox környezetébe:
 
-(Katakoda Ubuntu Playground)[https://www.katacoda.com/courses/ubuntu/playground]
+[Katakoda Ubuntu Playground](https://www.katacoda.com/courses/ubuntu/playground)
 
-2. A terminal-ba belépve add ki a következő parancsot:
+### 2. A terminal-ba belépve add ki a következő parancsot:
 
 ```
 git clone https://github.com/vblaskovics/Node-Prom-Graf-Docker
 ```
 
-3. Miután lejött a git repo, lépj is bele:
+### 3. Miután lejött a git repo, lépj is bele:
 
 ```
 cd Node-Prom-Graf-Docker
@@ -28,10 +28,10 @@ Miután elindultak, nyisd meg az alkalmazásokat!
 
 ## Prometheus elkészítése
 
-1. Ha már futnak az alkalmazások, akkor az elérési útjukat be kell másolni a prometheus config fájljába. Ehhez lépj át az IDE-be és nyisd meg a `./prometheus/prometheus.yml` fájlt!
+### 1. Ha már futnak az alkalmazások, akkor az elérési útjukat be kell másolni a prometheus config fájljába. Ehhez lépj át az IDE-be és nyisd meg a `./prometheus/prometheus.yml` fájlt!
 
 A fájl megfelelő helyeire írd be az alkalmazások elérési útjait:
-```
+```yml
 global:
   scrape_interval: 5s
 scrape_configs:
@@ -43,15 +43,21 @@ scrape_configs:
       - targets: ["IDE KELL BEÍRNI AZ EXPRESS APP ELÉRÉSI ÚTJÁT"]
 ```
 
-2. Ezután el kell indítani a prometheus-t:
+### 2. Ezután el kell indítani a prometheus-t:
 ```
 docker-compose -f docker-compose.prom.yml up
 ```
+Ha elindult a prometheus alkalmazás, akkor nyisd meg külön ablakba!
 
-3. Ha elindult a prometheus alkalmazás, akkor nyisd meg külön ablakba!
+## Prometheus használata 
 
-### Prometheus 
+### 1. Ellenőrizd a config beállításokat!
+![image](https://user-images.githubusercontent.com/1146283/142297582-13098e64-f191-416a-a8af-20c8b1ac5531.png)
 
+### 2. Ellenőrizd, hogy melyik app-okat monitorozzuk!
+![image](https://user-images.githubusercontent.com/1146283/142297654-6c460a17-d46f-49f6-9da2-88fab196bb77.png)
+
+### Kérdezd le az alábbi query-ket:
 
 
 
