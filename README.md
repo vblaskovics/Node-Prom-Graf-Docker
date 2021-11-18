@@ -72,8 +72,10 @@ Process által használt memória:
 `http_request_duration_seconds_sum`
 
 Http request-ek, a /random végű URL-ekből, 200-as hibakóddal, bucket-ekbe szedve (histogram)  
-http_request_duration_seconds_bucket{route='/random', status='2XX'}
+`http_request_duration_seconds_bucket{route='/random', status='2XX'}`
 
+Összes http request, aminek status-a 2-vel kezdődik
+`http_requests_total{status=~"2.*|4.*"}`
 
 
 
