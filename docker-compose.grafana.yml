@@ -1,8 +1,8 @@
 version: "3"
 services:
   grafana:
-    build: ./grafana
     env_file:
-      - grafana.env
+      - ./grafana/grafana.env
+    build: ./grafana
     ports:
       - "3000:3000"
