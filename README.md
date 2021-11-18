@@ -79,6 +79,20 @@ Http request-ek, a /random végű URL-ekből, 200-as hibakóddal, bucket-ekbe sz
 Összes http request, aminek status-a 2-vel vagy 4-el kezdődik  
 `http_requests_total{status=~"2.*|4.*"}`
 
+### Kérdezd le az alábbi query-ket:
+
+Process által használt memória:  
+`process_resident_memory_bytes`
+
+Összes http request válaszideje:  
+`http_request_duration_seconds_sum`
+
+Http request-ek, a /random végű URL-ekből, 200-as hibakóddal, bucket-ekbe szedve (histogram)  
+`http_request_duration_seconds_bucket{route='/random', status='2XX'}`
+
+Összes http request, aminek status-a 2-vel vagy 4-el kezdődik  
+`http_requests_total{status=~"2.*|4.*"}`
+
 
 
 ## Grafana elkészítése
