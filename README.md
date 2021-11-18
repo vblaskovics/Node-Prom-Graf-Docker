@@ -48,7 +48,9 @@ scrape_configs:
 ```
 
 ### 2. Ezután el kell indítani a prometheus-t:
+Nyiss egy új Terminal-t, majd indítsd el a docker-compose-t:
 ```
+cd Node-Prom-Graf-Docker
 docker-compose -f docker-compose.prom.yml up
 ```
 Ha elindult a prometheus alkalmazás, akkor nyisd meg külön ablakba!
