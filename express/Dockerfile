@@ -1,10 +1,4 @@
-# Init base image
-FROM ubuntu
-# Install node
-RUN apt-get update
-RUN apt-get install -y curl
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
-RUN apt-get install -y nodejs
+FROM node:latest
 # Install git and clone repo
 RUN apt update
 RUN apt install -y git
